@@ -169,15 +169,20 @@ body {
    TOP NAVBAR
    ========================================================================== */
 .top-navbar {
-    position: absolute;
+    position: fixed; /* Berubah dari absolute ke fixed agar ikut terscroll */
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%; /* Padding dikurangi agar lebih naik ke atas */
-    z-index: 100;
+    padding: 20px 5%;
+    z-index: 9999; /* Pastikan selalu berada di paling atas */
+    background-color: rgba(255, 255, 255, 0.85); /* Latar putih transparan */
+    backdrop-filter: blur(12px); /* Efek kaca buram (glassmorphism) mewah */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
 .nav-left {
