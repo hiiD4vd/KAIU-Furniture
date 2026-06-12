@@ -166,6 +166,125 @@ body {
 }
 
 /* ==========================================================================
+   TOP NAVBAR
+   ========================================================================== */
+.top-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 25px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.nav-icons svg {
+    transition: opacity 0.3s;
+}
+
+.nav-icons svg:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   BOTTOM CATEGORY NAVBAR (Screenshot matches)
+   ========================================================================== */
+.bottom-category-navbar {
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    height: 80px;
+    border: 1px solid #111; /* Stroke lengkap atas kanan bawah kiri */
+    z-index: 100;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.category-item {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    cursor: pointer;
+    border-right: 1px solid #111;
+    background-color: transparent; /* Tanpa latar belakang */
+    color: #111;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.category-item:last-child {
+    border-right: none;
+}
+
+.category-item:hover {
+    background-color: #6b4423; /* Warna coklat kayu */
+    color: #fff;
+}
+
+.arrow {
+    font-size: 18px;
+    font-weight: 400;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.category-item:hover .arrow {
+    transform: translate(6px, -6px) scale(1.1);
+}
+
+/* ==========================================================================
    HERO NATURAL SECTION
    ========================================================================== */
 .hero-natural-section {
