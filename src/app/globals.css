@@ -225,18 +225,18 @@ body {
     max-width: 1440px;
     margin: 80px auto;
     padding: 0 5%;
-    background-color: #fdfaf5; /* Background persis screenshot */
+    background-color: transparent; /* Background putih/polos sesuai permintaan */
 }
 
 .timeless-container {
     display: flex;
-    border: 1px solid #ccc; /* Bingkai luar */
+    border: 1px solid #111; /* Bingkai luar disamakan dengan navbar */
 }
 
 .timeless-left {
     flex: 1;
     padding: 30px;
-    border-right: 1px solid #ccc; /* Garis pemisah tengah */
+    border-right: 1px solid #111; /* Garis pemisah tengah disamakan */
 }
 
 .timeless-right {
@@ -247,7 +247,117 @@ body {
 
 .timeless-top-half {
     padding: 50px 40px;
-    border-bottom: 1px solid #ccc; /* Garis pemisah horizontal */
+    border-bottom: 1px solid #111; /* Garis pemisah horizontal disamakan */
+}
+
+/* ==========================================================================
+   SHOP BY ROOM SECTION
+   ========================================================================== */
+.shop-by-room {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 5% 50px;
+    background-color: #fff;
+    position: relative;
+    text-align: center;
+}
+
+.sbr-top {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 0.1em;
+    margin-bottom: 50px;
+}
+
+.sbr-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sbr-left-img-wrapper, .sbr-right-img-wrapper {
+    width: 25%;
+    height: 400px;
+    position: relative;
+}
+
+.sbr-left-img-wrapper {
+    left: -5%;
+}
+
+.sbr-right-img-wrapper {
+    right: -5%;
+    top: 50px;
+}
+
+.sbr-left-img-wrapper img, .sbr-right-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sbr-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sbr-item {
+    font-family: var(--font-cormorant), serif;
+    font-size: 6vw;
+    font-weight: 400;
+    color: #999;
+    margin: 0;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.sbr-item.active, .sbr-item:hover {
+    color: #333;
+}
+
+.sbr-bottom {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sbr-link {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 11px;
+    color: #111;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.sbr-back-to-top {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 15px 25px;
+    background: transparent;
+    border: 1px solid #111;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sbr-back-to-top:hover {
+    background-color: #111;
+    color: #fff;
 }
 
 .timeless-title {

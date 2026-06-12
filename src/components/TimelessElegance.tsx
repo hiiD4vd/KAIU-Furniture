@@ -8,8 +8,7 @@ export default function TimelessElegance() {
         {/* Left Column */}
         <div className="timeless-left">
           <div className="timeless-image-wrapper top-left-clip">
-            {/* Menggunakan gambar placeholder dari asset sebelumnya jika belum ada */}
-            <img src="/design_assets/img_0.jpg" alt="Woman sitting" className="timeless-img" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/600x800?text=Image+1' }} />
+            <img src="/assets/cewek duduk.jpg" alt="Woman sitting" className="timeless-img" />
           </div>
         </div>
 
@@ -26,7 +25,7 @@ export default function TimelessElegance() {
           <div className="timeless-bottom-half">
             <div className="timeless-text-row">
               <p className="timeless-desc">
-                Fashion Designer and Creative Director Carly Cushnie has entered her next chapter. Known for her influence in the fashion world, Carly brings her celebrated sense of style to interiors with her first-ever line of furniture exclusively for Lulu and Georgia. Every piece in the collection has a distinctive found quality with unique materials, and textures.
+                KAIU Furniture brings a celebrated sense of style to interiors with an exclusive line of beautifully crafted pieces. Every item in the collection has a distinctive found quality, designed with unique natural materials, refined textures, and a timeless aesthetic to elevate your living spaces.
               </p>
               <div className="timeless-arrow">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1">
@@ -36,8 +35,7 @@ export default function TimelessElegance() {
             </div>
             
             <div className="timeless-image-wrapper bottom-right-clip">
-              {/* Menggunakan gambar placeholder dari asset sebelumnya jika belum ada */}
-              <img src="/design_assets/img_1.jpg" alt="Marble Table" className="timeless-img" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/600x400?text=Image+2' }} />
+              <img src="/assets/suryakant-prajapati-6OCmgz7n4fM-unsplash.jpg" alt="Marble Table" className="timeless-img" />
             </div>
           </div>
 
