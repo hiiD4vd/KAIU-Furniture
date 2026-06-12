@@ -17,25 +17,31 @@ export default function Home() {
       <Products />
 
       {/* Halaman/Section Khusus Dining Room */}
-      <RoomCover 
-        title="Dining Room" 
-        bgImage="/assets/dining room/meja 1.jpg" 
-      />
-      <Products roomFilter="Dining Room" />
+      <section id="dining-room">
+        <RoomCover 
+          title="Dining Room" 
+          bgImage="/assets/dining room/meja 1.jpg" 
+        />
+        <Products roomFilter="Dining Room" />
+      </section>
 
       {/* Halaman/Section Khusus Living Room */}
-      <RoomCover 
-        title="Living Room" 
-        bgImage="/assets/living room/sofa 1.jpg" 
-      />
-      <Products roomFilter="Living Room" />
+      <section id="living-room">
+        <RoomCover 
+          title="Living Room" 
+          bgImage="/assets/living room/sofa 1.jpg" 
+        />
+        <Products roomFilter="Living Room" />
+      </section>
 
       {/* Halaman/Section Khusus Outdoor Space */}
-      <RoomCover 
-        title="Outdoor Space" 
-        bgImage="/assets/outdoor/sofa 1.jpg" 
-      />
-      <Products roomFilter="Outdoor Space" />
+      <section id="outdoor">
+        <RoomCover 
+          title="Outdoor Space" 
+          bgImage="/assets/outdoor/sofa 1.jpg" 
+        />
+        <Products roomFilter="Outdoor Space" />
+      </section>
 
       <Editorial />
       

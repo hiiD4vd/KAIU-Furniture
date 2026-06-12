@@ -1377,6 +1377,200 @@ body {
     .footer-content {
         flex-direction: column;
     }
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.accordion-item h3 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+.accordion-item p {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 15px;
+    display: none;
+}
+
+.accordion-item.open p {
+    display: block;
+}
+
+.full-width-image {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+
+/* ==========================================================================
+   GIANT FOOTER SECTION
+   ========================================================================== */
+.giant-footer {
+    background-color: #3b2818; /* Dark brown */
+    color: #fff;
+    text-align: center;
+    padding-top: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.footer-content h2 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #c9c0b1;
+}
+
+.footer-content p {
+    font-family: var(--font-cormorant), serif;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 40px;
+    color: #e3d5c5;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #3b2818;
+    padding: 15px 30px;
+    font-size: 10px;
+    font-family: var(--font-montserrat), sans-serif;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    margin-bottom: 60px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.giant-title-footer {
+    font-family: var(--font-cormserrat), sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+.footer-section {
+    position: relative;
+    width: 100%;
+    /* Menggunakan background gambar kayu gelap agar senada dengan referensi gambar */
+    background-image: url('/assets/suryakant-prajapati-6OCmgz7n4fM-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: #f7f6f4;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(17, 17, 17, 0.85); /* Dark elegant overlay */
+    z-index: 1;
+}
+
+.footer-container {
+    position: relative;
+    z-index: 2;
+    padding: 80px 5vw 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.footer-text-column {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-item h4 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8ded4; /* Premium tan color */
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.footer-item p {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #d1d1d1;
+    margin: 0;
+}
+
+.footer-logo-column {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 250px;
+}
+
+.footer-logo-img {
+    max-width: 250px;
+    filter: brightness(0) invert(1); /* Ensure it's white if original is dark */
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
     .footer-logo-column {
         justify-content: flex-start;
     }
@@ -1390,4 +1584,244 @@ body {
     line-height: 0.7;
     margin: 0;
     margin-bottom: -5vw;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS OVERHAULS
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Navbar adjustments */
+    .top-navbar {
+        padding: 15px 5%;
+    }
+    .top-nav-links {
+        display: none;
+    }
+    
+    /* 2. Hero Section adjustments */
+    .hero-top-container {
+        min-height: 90vh;
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 50px;
+        display: block; 
+        position: relative;
+        overflow: hidden; 
+    }
+    
+    .typography-container {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        z-index: 20;
+    }
+    
+    .title-outdoor {
+        font-size: 15vw !important;
+        text-align: left !important;
+        position: static !important;
+        line-height: 1;
+        margin: 0;
+        display: block;
+    }
+    
+    .title-entertaining {
+        font-size: 15vw !important;
+        text-align: right !important;
+        position: static !important;
+        line-height: 1;
+        margin: 0;
+        margin-top: -2% !important;
+        display: block;
+    }
+    
+    .image-umbrella {
+        display: block !important;
+        position: absolute !important;
+        top: 22% !important; /* Diturunkan sedikit */
+        right: 5% !important; 
+        width: 55% !important;
+        max-width: 180px;
+        z-index: 10;
+    }
+    
+    .image-stool {
+        display: block !important;
+        position: absolute !important;
+        top: 48% !important; /* Diturunkan sedikit ke bawah sesuai permintaan */
+        left: 2% !important; /* Agak masuk ke dalam sedikit */
+        width: 55% !important; 
+        max-width: 200px; 
+        margin: 0 !important;
+        z-index: 30;
+        animation: none !important;
+    }
+    
+    .image-lamp {
+        display: block !important;
+        position: absolute !important;
+        bottom: 12% !important; /* Turun sedikit */
+        right: 5% !important; /* Digeser ke KANAN sesuai permintaan! */
+        left: auto !important; /* Matikan efek tengah */
+        transform: none !important; /* Matikan efek tengah */
+        width: 45% !important; 
+        max-width: 150px; 
+        z-index: 10;
+        animation: none !important;
+    }
+    
+    .bottom-category-navbar {
+        display: none !important; /* Disembunyikan di mobile sesuai permintaan */
+    }
+    
+    /* 3. Timeless Elegance */
+    .timeless-container {
+        flex-direction: column;
+    }
+    .timeless-left, .timeless-right {
+        border: none;
+        border-bottom: 1px solid #111;
+        width: 100%;
+        padding: 20px;
+    }
+    .timeless-text-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .timeless-title {
+        font-size: 12vw;
+    }
+    .timeless-img-wrapper {
+        height: 50vh;
+    }
+
+    /* 4. Products Grid */
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .products-header-right {
+        text-align: left;
+    }
+    .products-filters {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+    .product-card.wide { grid-column: span 2; }
+    .product-card.narrow { grid-column: span 1; }
+    .product-img {
+        max-height: 180px;
+    }
+
+    /* 5. Room Cover */
+    .room-cover-title {
+        font-size: 12vw;
+    }
+    
+    /* 6. Shop By Room (Mobile - Mirip Desktop tapi Kecil) */
+    .shop-by-room {
+        padding: 50px 0;
+        position: relative;
+    }
+    .sbr-center {
+        flex-direction: row !important; /* KEMBALI KE ROW SEPERTI DESKTOP */
+        padding: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sbr-left-container, .sbr-right-container {
+        display: flex !important;
+        position: static !important;
+        width: 30% !important; /* Ambil 30% sisi kiri dan kanan */
+        opacity: 1; /* Hapus overlay gelap */
+    }
+    .sbr-left-img-wrapper, .sbr-right-img-wrapper {
+        width: 100% !important;
+        height: 60vh !important; /* Tinggi gambar di HP */
+        margin: 0 !important; /* Hapus negative margin agar tidak terpotong */
+    }
+    .sbr-right-img-wrapper {
+        margin-top: 10vh !important; /* Efek asimetris desktop */
+    }
+    
+    .sbr-list {
+        width: 40% !important; /* Sisa ruang di tengah */
+        align-items: center;
+        gap: 30px; /* Jarak antar teks */
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+    }
+    
+    .sbr-item {
+        font-size: 5vw !important; /* Ukuran teks proporsional */
+        text-align: center;
+        color: #111 !important; /* Kembali warna hitam */
+        transition: all 0.3s ease;
+        text-shadow: none !important; /* Hapus efek bayangan */
+    }
+    
+    .sbr-item.active {
+        transform: scale(1.15);
+        color: #000 !important;
+    }
+    
+    .sbr-png-img {
+        display: block !important;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150% !important; /* Biarkan tumpah ke luar kontainer 30% nya */
+        min-width: unset !important;
+        max-width: unset !important;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sbr-png-img.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* 7. Editorial Section Fix */
+    .editorial-section {
+        height: auto !important;
+        padding: 80px 5%;
+    }
+    .editorial-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: static !important;
+    }
+    .editorial-text {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-bottom: 40px;
+    }
+    .editorial-img {
+        position: relative !important;
+        width: 100% !important;
+        height: 300px !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin-bottom: 20px;
+        border-radius: 8px; /* Optional touch of elegance */
+    }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ROOMS = [
   {
@@ -28,9 +28,51 @@ const ROOMS = [
 
 export default function ShopByRoom() {
   const [activeRoom, setActiveRoom] = useState(ROOMS[0]);
+  const itemRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleObserver = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.innerWidth <= 768) {
+          const roomId = entry.target.getAttribute('data-id');
+          const room = ROOMS.find(r => r.id === roomId);
+          if (room) setActiveRoom(room);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleObserver, {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
+    });
+
+    itemRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleRoomClick = (roomId: string) => {
+    const targetMap: Record<string, string> = {
+      'LIVING ROOM': 'living-room',
+      'DINING ROOM': 'dining-room',
+      'OUTDOOR': 'outdoor'
+    };
+    
+    const elementId = targetMap[roomId];
+    if (elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -60,11 +102,17 @@ export default function ShopByRoom() {
         </div>
 
         <div className="sbr-list">
-          {ROOMS.map(room => (
+          {ROOMS.map((room, i) => (
             <h1
               key={room.id}
+              data-id={room.id}
+              ref={el => { itemRefs.current[i] = el; }}
               className={`sbr-item ${activeRoom.id === room.id ? 'active' : ''}`}
-              onMouseEnter={() => setActiveRoom(room)}
+              onMouseEnter={() => {
+                if (window.innerWidth > 768) setActiveRoom(room);
+              }}
+              onClick={() => handleRoomClick(room.id)}
+              style={{ cursor: 'pointer' }}
             >
               {room.id}
             </h1>
