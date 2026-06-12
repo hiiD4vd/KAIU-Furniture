@@ -1780,13 +1780,23 @@ body {
     .sbr-png-img {
         display: block !important;
         position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: 150% !important; /* Biarkan tumpah ke luar kontainer 30% nya */
+        top: 50%;
+        width: 180% !important; /* Lebih besar agar tumpah ke tengah */
         min-width: unset !important;
         max-width: unset !important;
         opacity: 0;
         visibility: hidden;
+    }
+    
+    .sbr-left-img-wrapper .sbr-png-img {
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .sbr-right-img-wrapper .sbr-png-img {
+        right: 0;
+        left: auto;
+        transform: translateY(-50%);
     }
     .sbr-png-img.active {
         opacity: 1;
@@ -1795,33 +1805,6 @@ body {
     
     /* 7. Editorial Section Fix */
     .editorial-section {
-        height: auto !important;
-        padding: 80px 5%;
-    }
-    .editorial-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: static !important;
-    }
-    .editorial-text {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin-bottom: 40px;
-    }
-    .editorial-img {
-        position: relative !important;
-        width: 100% !important;
-        height: 300px !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        margin-bottom: 20px;
-        border-radius: 8px; /* Optional touch of elegance */
+        display: none !important; /* Disembunyikan di mobile sesuai permintaan */
     }
 }
