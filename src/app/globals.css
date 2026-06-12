@@ -255,12 +255,11 @@ body {
    ========================================================================== */
 .shop-by-room {
     width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 100px 5% 50px;
+    padding: 100px 0 50px; /* Dibuat full width tanpa padding kiri/kanan */
     background-color: #fff;
     position: relative;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .sbr-top {
@@ -277,28 +276,247 @@ body {
     align-items: center;
     position: relative;
     width: 100%;
-    overflow: hidden;
+}
+
+.sbr-left-container {
+    width: 25%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sbr-right-container {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .sbr-left-img-wrapper, .sbr-right-img-wrapper {
-    width: 25%;
-    height: 400px;
+    width: 36vw; /* Diperbesar sangat signifikan */
+    height: 85vh; /* Dipertinggi sangat signifikan */
     position: relative;
 }
 
 .sbr-left-img-wrapper {
-    left: -5%;
+    margin-left: -9vw; /* Terlihat 3/4, hanya terpotong 1/4 (9vw) */
 }
 
 .sbr-right-img-wrapper {
-    right: -5%;
-    top: 50px;
+    margin-top: 10vh; /* Penyesuaian jarak karena gambar lebih tinggi */
+    margin-right: -9vw; /* Terlihat 3/4, hanya terpotong 1/4 (9vw) */
 }
 
-.sbr-left-img-wrapper img, .sbr-right-img-wrapper img {
+.sbr-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.sbr-bg-img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes floatUpDown {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* PNG Images Overlay */
+.sbr-png-img {
+    position: absolute;
+    z-index: 10;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out, width 0.4s ease, min-width 0.4s ease;
+}
+
+.sbr-png-img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ritme gerakan untuk gambar PNG di sebelah kiri */
+.sbr-left-fg.active {
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+/* Ritme gerakan untuk gambar PNG di sebelah kanan (lebih lambat agar asimetris) */
+.sbr-right-fg.active {
+    animation: floatUpDown 8.5s ease-in-out infinite 0.5s;
+}
+
+.sbr-left-fg {
+    top: 15%;
+    right: -25%; 
+    width: 20vw; 
+    min-width: 250px;
+    height: auto;
+    transition: width 0.4s ease, min-width 0.4s ease;
+}
+
+/* "gambar sofa itu besarin dua2nya yg sofa" */
+.sbr-left-fg.sbr-living-left,
+.sbr-left-fg.sbr-outdoor-left {
+    width: 28vw; /* Diperbesar khusus untuk sofa */
+    min-width: 350px;
+}
+
+.sbr-right-fg {
+    bottom: -5%;
+    left: -25%; 
+    width: 25vw; 
+    min-width: 300px;
+    height: auto;
+    transition: width 0.4s ease, min-width 0.4s ease;
+}
+
+/* "gambar meja yg gada 1 nya yg outdoor kecilin dikit" */
+.sbr-right-fg.sbr-outdoor-right {
+    width: 18vw; /* Dikecilkan sedikit khusus untuk meja outdoor */
+    min-width: 220px;
+}
+
+/* ==========================================================================
+   PRODUCTS SECTION
+   ========================================================================== */
+.products-section {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 100px;
+}
+
+.products-header {
+    display: flex;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.products-header-left {
+    flex: 1;
+    padding: 40px 5vw;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+
+.products-title {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 8vw;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #222;
+    margin: 0;
+    line-height: 1;
+}
+
+.products-header-right {
+    flex: 1;
+    padding: 40px 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.products-subtitle {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 2vw;
+    font-weight: 500;
+    color: #222;
+    margin: 0 0 25px 0;
+}
+
+.products-filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 10px 18px;
+    background: #f7f6f4;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-chip.active, .filter-chip:hover {
+    background: #e8ded4;
+    color: #111;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: 1px solid #e5e5e5; /* Asumsi body tidak ada margin */
+}
+
+.product-card {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 3vw;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.product-card.wide {
+    grid-column: span 2;
+}
+
+.product-card.narrow {
+    grid-column: span 1;
+}
+
+.product-image-container {
+    background-color: #f7f6f4;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    padding: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.product-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #e8ded4;
+    padding: 8px 16px;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #111;
+}
+
+.product-img {
+    max-width: 90%;
+    max-height: 250px;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Menyatukan gambar PNG dengan background box */
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05); /* Sedikit zoom saat di-hover */
+}
+
+.product-card:hover .product-image-container {
+    background-color: #f0eee9;
 }
 
 .sbr-list {
