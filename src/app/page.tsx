@@ -3,6 +3,8 @@ import TimelessElegance from "@/components/TimelessElegance";
 import ShopByRoom from "@/components/ShopByRoom";
 import Products from "@/components/Products";
 import RoomCover from "@/components/RoomCover";
+import Editorial from "@/components/Editorial";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -34,6 +36,10 @@ export default function Home() {
         bgImage="/assets/outdoor/sofa 1.jpg" 
       />
       <Products roomFilter="Outdoor Space" />
+
+      <Editorial />
+      
+      <Footer />
     </main>
   );
 }

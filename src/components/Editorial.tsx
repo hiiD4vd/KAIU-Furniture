@@ -5,21 +5,21 @@ export default function Editorial() {
     <section className="editorial-section">
       <div className="editorial-container">
         <div className="editorial-text">
-          <p>Refined</p>
-          <p>Hand Crafted</p>
-          <p className="highlight">Natural Materials</p>
-          <p>Sustainable</p>
-          <p>Modern</p>
+          <p>REFINED</p>
+          <p>HAND CRAFTED</p>
+          <p className="highlight" style={{ fontSize: '4vw', fontFamily: 'var(--font-cormorant), serif', color: '#111', margin: '20px 0' }}>Natural Materials</p>
+          <p>SUSTAINABLE</p>
+          <p>MODERN</p>
         </div>
 
         <div className="editorial-img img-1">
-          <Image src="/pages/page_08.png" alt="Editorial 1" fill style={{ objectFit: 'cover' }} />
+          <Image src="/assets/living room.jpg" alt="Elegant Living Room" fill style={{ objectFit: 'cover' }} />
         </div>
         <div className="editorial-img img-2">
-          <Image src="/pages/page_09.png" alt="Editorial 2" fill style={{ objectFit: 'cover' }} />
+          <Image src="/assets/cewek duduk.jpg" alt="Lifestyle Furniture" fill style={{ objectFit: 'cover' }} />
         </div>
         <div className="editorial-img img-3">
-          <Image src="/pages/page_10.png" alt="Editorial 3" fill style={{ objectFit: 'cover' }} />
+          <Image src="/assets/dining room.jpg" alt="Natural Materials" fill style={{ objectFit: 'cover' }} />
         </div>
       </div>
     </section>
