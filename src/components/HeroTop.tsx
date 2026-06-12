@@ -10,19 +10,14 @@ export default function HeroTop() {
           <img src="/assets/logo.png" alt="KAIU Logo" className="logo-img" style={{ filter: 'brightness(0)' }} />
         </div>
         <div className="nav-right">
-          <ul className="nav-links">
+          <ul className="top-nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#product">Product <span style={{fontSize: '10px', marginLeft: '3px'}}>&#8964;</span></a></li>
+            <li><a href="#product">Product <span style={{fontSize: '14px', marginLeft: '3px'}}>&#8964;</span></a></li>
             <li><a href="#collection">Collection</a></li>
             <li><a href="#new-arrivals">New Arrivals</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
-          <div className="nav-icons">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
         </div>
       </nav>
 
