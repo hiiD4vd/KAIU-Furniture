@@ -1790,14 +1790,23 @@ body {
     
     .sbr-left-img-wrapper .sbr-png-img {
         left: 0;
+        top: 35% !important; /* Dinaikkan ke atas */
         transform: translateY(-50%);
     }
 
     .sbr-right-img-wrapper .sbr-png-img {
         right: 0;
         left: auto;
+        top: 75% !important; /* Diturunkan ke bawah */
         transform: translateY(-50%);
     }
+    
+    /* Pengecilan khusus untuk meja outdoor kanan */
+    .sbr-outdoor-right {
+        transform: translateY(-50%) scale(0.65) !important;
+        transform-origin: right center !important;
+    }
+
     .sbr-png-img.active {
         opacity: 1;
         visibility: visible;
