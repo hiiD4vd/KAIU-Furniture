@@ -8,7 +8,7 @@ body {
     background-color: #ffffff;
     /* Font family will be handled by next/font in layout.tsx */
     color: #333333;
-    overflow-x: hidden;
+    overflow-x: clip; /* Fix: use clip instead of hidden so position: sticky works */
 }
 
 .hero-top-container {
@@ -264,7 +264,7 @@ body {
     background-color: #fff;
     position: relative;
     text-align: center;
-    overflow-x: hidden;
+    overflow-x: clip; /* Fix: Gunakan clip agar sticky scroll bekerja */
 }
 
 .sbr-top {
@@ -349,20 +349,23 @@ body {
 }
 
 /* Ritme gerakan untuk gambar PNG di sebelah kiri */
-.sbr-left-fg.active {
-    animation: floatUpDown 6s ease-in-out infinite;
-}
-
-/* Ritme gerakan untuk gambar PNG di sebelah kanan (lebih lambat agar asimetris) */
-.sbr-right-fg.active {
-    animation: floatUpDown 8.5s ease-in-out infinite 0.5s;
-}
-
 .sbr-left-fg {
+    animation: floatUpDown 6s ease-in-out infinite;
     top: 15%;
     right: -25%; 
     width: 20vw; 
     min-width: 250px;
+    height: auto;
+    transition: width 0.4s ease, min-width 0.4s ease;
+}
+
+/* Ritme gerakan untuk gambar PNG di sebelah kanan (lebih lambat agar asimetris) */
+.sbr-right-fg {
+    animation: floatUpDown 8.5s ease-in-out infinite 0.5s;
+    bottom: 5%;
+    left: -10vw;
+    width: 15vw; 
+    min-width: 180px;
     height: auto;
     transition: width 0.4s ease, min-width 0.4s ease;
 }
@@ -1715,13 +1718,26 @@ body {
         flex-wrap: wrap;
     }
     .products-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr) !important; /* Kembali ke 2 kolom agar pola wide/narrow jalan */
+        gap: 0px !important; /* Hilangkan gap agar persis desktop */
     }
-    .product-card.wide { grid-column: span 2; }
-    .product-card.narrow { grid-column: span 1; }
+    .product-card {
+        padding: 15px !important; /* Kurangi padding drastis agar tidak tinggi */
+    }
+    .product-card.wide { 
+        grid-column: span 2 !important; /* Yang lebar penuhi 2 kolom (1 baris) */
+    }
+    .product-card.narrow { 
+        grid-column: span 1 !important; /* Yang kotak 1 kolom (setengah baris) */
+    }
     .product-img {
-        max-height: 180px;
+        max-height: 100px !important; /* Perkecil batas tinggi gambar agar kotaknya pendek ke bawah */
+        width: 100% !important;
+        object-fit: contain !important;
+    }
+    .product-badge {
+        font-size: 10px !important; /* Perkecil badge */
+        padding: 5px 10px !important;
     }
 
     /* 5. Room Cover */
@@ -1780,31 +1796,29 @@ body {
     .sbr-png-img {
         display: block !important;
         position: absolute;
-        top: 50%;
         width: 180% !important; /* Lebih besar agar tumpah ke tengah */
         min-width: unset !important;
         max-width: unset !important;
         opacity: 0;
         visibility: hidden;
+        transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 0.5s ease !important;
     }
     
     .sbr-left-img-wrapper .sbr-png-img {
         left: 0;
-        top: 35% !important; /* Dinaikkan ke atas */
-        transform: translateY(-50%);
+        top: 0% !important; /* Dinaikkan TANPA transform */
     }
 
     .sbr-right-img-wrapper .sbr-png-img {
         right: 0;
         left: auto;
-        top: 75% !important; /* Diturunkan ke bawah */
-        transform: translateY(-50%);
+        top: 40% !important; /* Diturunkan TANPA transform */
     }
     
-    /* Pengecilan khusus untuk meja outdoor kanan */
+    /* Pengecilan khusus untuk meja outdoor kanan TANPA transform scale */
     .sbr-outdoor-right {
-        transform: translateY(-50%) scale(0.65) !important;
-        transform-origin: right center !important;
+        width: 110% !important; 
+        right: 0 !important;
     }
 
     .sbr-png-img.active {

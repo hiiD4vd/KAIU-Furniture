@@ -162,7 +162,6 @@ export default function ShopByRoom() {
 
         <div className="sbr-bottom" style={isMobile ? { position: 'absolute', bottom: '20px', width: '100%' } : {}}>
           <a href="#shop" className="sbr-link">SHOP BY ROOM &rarr;</a>
-          <button className="sbr-back-to-top" onClick={scrollToTop}>BACK TO TOP &uarr;</button>
         </div>
       </div>
     </section>
